@@ -17,4 +17,19 @@ public class RNAsequence implements SequenceWrapper{
 	public char[] get_alphabet(){
 		return alphabet;
 	}
+	
+	public int length(){
+		return sequence.length();
+	}
+	
+	public boolean is_a_WC_base_pair(int i, int j){
+		//loop through base pair options until found
+		int count = 0;
+		while(sequence.charAt(i) != basepairsoptions[count][0]){
+			if(Character.valueOf(sequence.charAt(i)).compareTo(sequence.charAt(j)) == 0){
+				return true;
+			} else return false;
+		}
+		return false;
+	}
 }
