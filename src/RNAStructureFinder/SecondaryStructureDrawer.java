@@ -2,7 +2,7 @@ package RNAStructureFinder;
 
 public class SecondaryStructureDrawer {
 
-	public static void drawSecStructure(Sequence secondarySequence) {
+	public static void drawSecStructure(RNAsequence secondarySequence) {
 		// TODO Auto-generated method stub
 		
 	}

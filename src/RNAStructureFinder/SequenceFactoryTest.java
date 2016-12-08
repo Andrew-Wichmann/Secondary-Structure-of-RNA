@@ -36,5 +36,30 @@ public class SequenceFactoryTest {
 		assertNotNull(SequenceFactory.create_Sequence("aucgcgcugugcguagu"));
 		assertNotNull(SequenceFactory.create_Sequence("aucgcgcugugugugugugugguuggucguacgaucgaucgaucucgaucgaucgucuagu"));
 	}
+	
+	//The sequence returned by the create_sequence function should be the same string assuming that
+	//the sequence is valid.
+	@Test
+	public void test_that_the_create_sequence_returns_a_sequence_with_no_base_pairs(){
+		String valid_sequence = "aucguacguacguagucgaucguggcaacgaucgau";
+		RNAsequence primary_sequence = SequenceFactory.create_Sequence(valid_sequence);
+		
+		//Check that they're the same length and that all the characters match
+		assertEquals(valid_sequence.length(), primary_sequence.sequence.length());
+		for(int i = 0; i < valid_sequence.length(); i++){
+			assertEquals(valid_sequence.charAt(i), primary_sequence.sequence.charAt(i));
+		}
+	}
 
+	//The sequence returned by the create_sequence function should have no base pairs.
+	@Test
+	public void test_that_the_create_sequence_returns_a_pair_free_sequence(){
+		String valid_sequence = "aucguacguacguagucgaucguggcaacgaucgau";
+		RNAsequence primary_sequence = SequenceFactory.create_Sequence(valid_sequence);
+		
+		//Check that each basepair element is 0 (not paired)
+		for(int i = 0; i<primary_sequence.basePairs.length; i++){
+			assertEquals(0, primary_sequence.basePairs[i]);
+		}
+	}
 }

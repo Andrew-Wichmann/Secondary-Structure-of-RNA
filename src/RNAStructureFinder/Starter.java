@@ -5,8 +5,8 @@ import java.util.*;
 public class Starter {
 
 	private static String input_String;
-	private static Sequence primarySequence;
-	private static Sequence secondarySequence;
+	private static RNAsequence primarySequence;
+	private static RNAsequence secondarySequence;
 	private SecondaryStructureFinder secStructureFinder;
 	private SecondaryStructureDrawer secStructureDrawer;
 	private static Scanner user_input = new Scanner(System.in);

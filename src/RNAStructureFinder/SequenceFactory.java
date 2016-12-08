@@ -1,15 +1,18 @@
 package RNAStructureFinder;
 
 public class SequenceFactory {
-
-	private static char[] alphabet = new char[]{'a','u','g','c'};
-	private char[][] basepairs= new char[][]{{'a','u'}, {'u','a'}, {'g','c'}, {'c','g'}};
 	
-	public static Sequence create_Sequence(String input_String) {
+	static SequenceWrapper sequence = new RNAsequence();
+	
+	public SequenceFactory(SequenceWrapper otherSequence){
+		sequence = otherSequence;
+	}
+	
+	public static RNAsequence create_Sequence(String input_String) {
 		// TODO Auto-generated method stub
 		if(input_String.isEmpty() || !is_valid(input_String)){
 			return null;
-		} else return new Sequence(input_String);
+		} else return new RNAsequence(input_String);
 	}
 	
 	//Input a sequence to check its validity within the defined alphabet
@@ -29,8 +32,8 @@ public class SequenceFactory {
 	
 	//Checks one character against each character in the alphabet
 	private static boolean within_alphabet(char element){
-		for(int i = 0; i < alphabet.length; i++){
-			if(element == alphabet[i]){
+		for(int i = 0; i < sequence.get_alphabet().length ; i++){
+			if(element == sequence.get_alphabet()[i]){
 				//when one matches, the character is within the alphabet
 				return true;
 			}
