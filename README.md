@@ -8,6 +8,7 @@ Although RNA is a single stranded structure, RNA also folds upon itself in secon
 + Base pairs must be seperated by at least 4 intermeditate bases
 + Pairs cannot cross (i.e. if {1,7} is a pair {2,8} is a cross and therefore invalid)
 This application uses a dynamic programming approach aquire the largest number of pairs. It does not weight either {g,c} or {a,u} pairs over each other.
+
 The recursive function is as follows:
 ![alt text](https://github.com/Andrew-Wichmann/Secondary-Structure-of-RNA/blob/master/pics/OPT-function.jpg "OPT function")
 
